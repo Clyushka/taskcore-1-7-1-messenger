@@ -23,7 +23,6 @@ public class GeoServiceTest {
 
     @ParameterizedTest
     @MethodSource("ipAndLocationFactory")
-    //Проверить работу метода public Location byIp(String ip)
     public void byIpTest(String ip, Location expected) {
         assertEquals(expected,
                 sut.byIp(ip));
@@ -56,8 +55,4 @@ public class GeoServiceTest {
                 RuntimeException.class,
                 () -> sut.byCoordinates(0,0));
     }
-
-    //    public Location byCoordinates(double latitude, double longitude) {
-    //        throw new RuntimeException("Not implemented");
-    //    }
 }
