@@ -32,4 +32,27 @@ public class Location {
     public int getBuiling() {
         return builing;
     }
+
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null || obj.getClass() != this.getClass()) {
+            return false;
+        }
+        Location location = (Location) obj;
+        return this.builing == location.builing
+                && (
+                        this.city == location.city
+                                || (this.city != null && this.city.equals(location.city))
+                                || (location.city != null && location.city.equals(this.city)))
+                && (
+                        this.street == location.street
+                                || (this.street != null && this.street.equals(location.street))
+                                || (location.street != null && location.street.equals(this.street)))
+                && (
+                        this.country == location.country
+                                || (this.country != null && this.country.equals(location.country))
+                                || (location.country != null && location.country.equals(this.country)));
+    }
 }
